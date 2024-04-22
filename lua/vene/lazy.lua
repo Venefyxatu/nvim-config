@@ -12,15 +12,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugin_specs = {
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require "vene.plugins.lsp.config"
-        end,
-    },
-}
-
 local lazy_opts = {
     ui = {
         border = "rounded",
@@ -50,9 +41,4 @@ local lazy_opts = {
     },
 }
 
-local external_packages = {
-}
-
-require("lazy").setup({ { import ="vene.plugins" }, { import = "vene.plugins.lsp" } }, lazy_opts)
--- require("mason-tool-installer").setup({ensure_installed = external_packages})
--- require("lspconfig").terraformls.setup({})
+require("lazy").setup({ { import = "vene.plugins" }, { import = "vene.plugins.lsp" } }, lazy_opts)
