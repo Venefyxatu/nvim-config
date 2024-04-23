@@ -1,7 +1,7 @@
 local telescope_builtin = require("telescope.builtin")
 
 local function toggle_relnum()
-    vim.opt.relativenumber = not(vim.opt.relativenumber:get())
+  vim.opt.relativenumber = not(vim.opt.relativenumber:get())
 end
 
 vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", {desc = "Open parent directory"})
@@ -10,7 +10,7 @@ vim.keymap.set("n", "<leader>hh", ":nohl<CR>", {desc = "Clear search highlights"
 -- vim.keymap.set("i", "<leader>jk", "<ESC>", {desc = "Exit insert mode with <leader>jk"})
 
 -- Telescope
-vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, {desc = "Fuzzy find files"})
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>", {desc = "Fuzzy find files"})
 vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {desc = "Grep through files"})
 vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {desc = "Fuzzy find buffers"})
 vim.keymap.set("n", "<leader>fs", telescope_builtin.lsp_document_symbols, {desc = "Fuzzy find LSP symbols in current buffer"})

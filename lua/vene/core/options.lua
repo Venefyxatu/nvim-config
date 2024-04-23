@@ -13,7 +13,9 @@ vim.cmd("syntax enable")
 vim.opt.showmatch = true
 vim.g.solarized_italic_comments = true
 vim.g.solarized_borders = true
-vim.g.solarized_contrast = true
+vim.g.solarized_contrast = false
+vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"
 
 -- indentation
 local indent = 4
