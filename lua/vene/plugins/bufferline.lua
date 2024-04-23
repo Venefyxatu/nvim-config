@@ -9,6 +9,9 @@ return {
       mode = "tabs",
       separator_style = "slant",
       diagnostics = "nvim_lsp",
+      show_close_icon = false,
+      show_duplicate_prefix = false,
+      always_show_bufferline = false,
     },
   },
 }
