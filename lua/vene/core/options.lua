@@ -3,7 +3,7 @@ vim.opt.writebackup = false  -- no tilde files
 vim.opt.autowrite = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true  -- mixed case search is case sensitive
-vim.opt.clipboard:append("unnamedplus") -- append to system clipboard
+vim.opt.clipboard:append("unnamedplus") -- append to system clipboard, allow copying between nvim instances
 
 -- visuals
 vim.opt.number = true
