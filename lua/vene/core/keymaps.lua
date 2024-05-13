@@ -5,7 +5,7 @@ local function toggle_relnum()
 end
 
 vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
-vim.keymap.set("n", "<leader>n", toggle_relnum, {})
+vim.keymap.set("n", "<leader>n", toggle_relnum, { desc = "Toggle relative numbers" })
 vim.keymap.set("n", "<leader>hh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- vim.keymap.set("i", "<leader>jk", "<ESC>", {desc = "Exit insert mode with <leader>jk"})
 
