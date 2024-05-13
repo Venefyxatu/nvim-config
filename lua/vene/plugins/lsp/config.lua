@@ -2,19 +2,19 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",  -- integrate auto-completion with language servers
+    "hrsh7th/cmp-nvim-lsp", -- integrate auto-completion with language servers
     -- { "antosha417/nvim-lsp-file-operations", config = true },  -- file operations, needs a tree
-    { "folke/neodev.nvim", opts = {} },  -- configure the Lua language server for nvim config
+    { "folke/neodev.nvim", opts = {} }, -- configure the Lua language server for nvim config
   },
   config = function()
     local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")  -- auto-completion
+    local cmp_nvim_lsp = require("cmp_nvim_lsp") -- auto-completion
 
-    vim.api.nvim_create_autocmd("LspAttach", {  -- execute whenever an LSP client attaches to a buffer
-      group = vim.api.nvim_create_augroup("UserLspConfig", {}),  -- group together autocmds
+    vim.api.nvim_create_autocmd("LspAttach", { -- execute whenever an LSP client attaches to a buffer
+      group = vim.api.nvim_create_augroup("UserLspConfig", {}), -- group together autocmds
       callback = function(ev)
-        local opts = { buffer = ev.buf, silent = false }  -- buffer to which the LSP client has attached
+        local opts = { buffer = ev.buf, silent = false } -- buffer to which the LSP client has attached
 
         -- keymaps only available when the LSP client has attached to a buffer, and only in said buffer
         opts.desc = "Show LSP references"
@@ -78,7 +78,7 @@ return {
           settings = {
             Lua = {
               diagnostics = {
-                globals = { "vim" },  -- make the language server recognize the "vim" global variable
+                globals = { "vim" }, -- make the language server recognize the "vim" global variable
               },
               completion = {
                 callSnippet = "Replace",
