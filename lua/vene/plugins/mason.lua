@@ -7,11 +7,13 @@ return {
     dependencies = {
       "williamboman/mason-lspconfig.nvim", -- install language servers
       "WhoIsSethDaniel/mason-tool-installer.nvim", -- install tools that are not language servers
+      "jay-babu/mason-nvim-dap.nvim",
     },
     config = function()
       local mason = require("mason")
       local mason_lspconfig = require("mason-lspconfig")
       local mason_tool_installer = require("mason-tool-installer")
+      local mason_dap_installer = require("mason-nvim-dap")
 
       mason.setup({
         ui = {
@@ -48,6 +50,12 @@ return {
           "stylua",
           "ruff",
           "yamlfix",
+        },
+      })
+
+      mason_dap_installer.setup({
+        ensure_installed = {
+          "python",
         },
       })
     end,
