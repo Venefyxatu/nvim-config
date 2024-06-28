@@ -8,4 +8,8 @@ return {
     { "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", desc = "Open/close trouble quickfix list" },
     { "<leader>xl", "<cmd>TroubleToggle loclist<CR>", desc = "Open/close trouble location list" },
   },
+  init = function()
+    local trouble = require("trouble")
+    trouble.setup({})
+  end,
 }

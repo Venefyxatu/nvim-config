@@ -1,20 +1,20 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate",  -- update all language parsers when the plugin is installed or updated
+  build = ":TSUpdate", -- update all language parsers when the plugin is installed or updated
   config = function()
     local treesitter = require("nvim-treesitter.configs")
 
     treesitter.setup({
       highlight = {
-        enable = true
+        enable = true,
       },
       modules = {},
       sync_install = false,
       ignore_install = {},
       auto_install = true,
       indent = {
-        enable = true
+        enable = true,
       },
       ensure_installed = {
         "awk",
@@ -31,6 +31,7 @@ return {
         "json",
         "lua",
         "markdown",
+        "markdown_inline",
         "python",
         "ssh_config",
         "terraform",

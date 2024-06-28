@@ -1,8 +1,8 @@
 -- general behaviour
-vim.opt.writebackup = false  -- no tilde files
+vim.opt.writebackup = false -- no tilde files
 vim.opt.autowrite = true
 vim.opt.ignorecase = true
-vim.opt.smartcase = true  -- mixed case search is case sensitive
+vim.opt.smartcase = true -- mixed case search is case sensitive
 vim.opt.clipboard:append("unnamedplus") -- append to system clipboard, allow copying between nvim instances
 
 -- visuals
@@ -29,9 +29,15 @@ vim.opt.foldcolumn = "auto"
 vim.opt.foldlevel = 0
 vim.opt.foldenable = false
 
-
 -- save behaviour
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*" },
-    command = [[%s/\s\+$//e]],
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
+
+-- filetypes
+vim.filetype.add({
+  extension = {
+    tf = "terraform",
+  },
 })
