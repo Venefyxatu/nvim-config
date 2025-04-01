@@ -19,6 +19,7 @@ return {
       ensure_installed = {
         "awk",
         "bash",
+        "cpp",
         "dockerfile",
         "diff",
         "git_config",

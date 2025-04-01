@@ -7,6 +7,13 @@ return {
 
     dapui.setup()
 
+    local bin_locations = vim.fn.stdpath("data") .. "/mason/bin/"
+    dap.adapters.codelldb = {
+      type = "executable",
+      command = bin_locations .. "codelldb",
+      name = "codelldb",
+    }
+
     require("dap-python").setup(
       (os.getenv("VIRTUAL_ENV") or "~/.local/share/nvim/mason/packages/debugpy/venv") .. "/bin/python3"
     )
@@ -26,6 +33,23 @@ return {
       justMyCode = false,
     })
 
+    -- left here for reference - overseer with {tasks,launch}.json makes it unnecessary
+    -- dap.configurations.cpp = {
+    --   {
+    --     name = "Launch basic",
+    --     type = "codelldb",
+    --     request = "launch",
+    --     -- program = "main",
+    --     program = function()
+    --       vim.fn.system("make PROJECT_NAME=main OBJS='*cpp' BUILD_MODE=DEBUG")
+    --       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    --     end,
+    --     cwd = "${workspaceFolder}",
+    --     stopOnEntry = false,
+    --     runInTerminal = false,
+    --   },
+    -- }
+
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
     end
@@ -44,6 +68,8 @@ return {
 
     vim.keymap.set("n", "<Leader>dc", dap.continue, {})
     vim.keymap.set("n", "<Leader>dso", dap.step_over, {})
+    vim.keymap.set("n", "<Leader>dsi", dap.step_into, {})
+    vim.keymap.set("n", "<Leader>dsO", dap.step_out, {})
     vim.keymap.set("n", "<F10>", dap.step_over, {})
     vim.keymap.set("n", "<F11>", dap.step_into, {})
     vim.keymap.set("n", "<F12>", dap.step_out, {}) -- step <u>p

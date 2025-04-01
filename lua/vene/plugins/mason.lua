@@ -29,15 +29,17 @@ return {
         },
       })
       mason_lspconfig.setup({
+        automatic_installation = true,
         ensure_installed = {
           "bashls", -- bash
+          "clangd", -- clangd for c++
           "dockerls", -- Docker
           -- "gitlab_ci_ls",  -- gitlab-specific yaml, does not replace yamlls
           "jsonls", -- JSON
           "lua_ls", -- lua
           "marksman", -- markdown
           "pyright", -- python
-          "ruff_lsp", -- ruff (should this replace pyright?)
+          "ruff", -- ruff (should this replace pyright?)
           "terraformls", -- terraform
           "yamlls", -- yaml
         },
@@ -46,6 +48,7 @@ return {
       mason_tool_installer.setup({
         ensure_installed = {
           "beautysh",
+          "codelldb", -- debugger for c++
           "fixjson",
           "stylua",
           "ruff",
@@ -54,6 +57,7 @@ return {
       })
 
       mason_dap_installer.setup({
+        automatic_installation = true,
         ensure_installed = {
           "python",
         },
